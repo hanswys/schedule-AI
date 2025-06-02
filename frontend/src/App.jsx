@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { Button } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import './App.css'
 
 function App() {
@@ -9,6 +7,7 @@ function App() {
 
   return (
     <>
+    <TextField id="outlined-basic" label="Outlined" variant="outlined" />
     <Button variant="contained">Contained</Button>
     </>
   )
