@@ -1,9 +1,18 @@
 import { useState } from "react";
-import { TextField, Button, AppBar, Toolbar, Typography } from "@mui/material";
+import { TextField, Button, AppBar, Toolbar, Typography, Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
 import "./App.css";
-import { orange, purple, grey } from "@mui/material/colors";
+import { orange, grey } from "@mui/material/colors";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemText from "@mui/material/ListItemText";
+import Avatar from "@mui/material/Avatar";
+import FolderIcon from "@mui/icons-material/Folder";
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import AddIcon from '@mui/icons-material/Add';
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -22,21 +31,18 @@ function App() {
 
   return (
     <>
-      {/* Navigation Bar */}
-      <AppBar position="static" sx={{ backgroundColor: grey[50] }}>
+    <Box sx={{ flexGrow: 1, outlineColor: "orange", outlineStyle: "solid", outlineWidth: "2px" }}>
+      <AppBar position="static" sx={{bgcolor: grey[50]}}>
         <Toolbar>
-          <img src="../foxnobg.png" alt="Logo" style={{ height: "40px", marginRight: "16px" }} />
-          <Typography variant="h6" sx={{ flexGrow: 1, color: "orange" }}>
+        <img src="../foxnobg.png" alt="Logo" style={{ height: "40px", marginRight: "16px" }} />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: "orange" }}>
             Fox Flow AI
           </Typography>
-          <Button sx={{color: "orange"}}>Home</Button>
-          <Button sx={{color: "orange"}}>About</Button>
-          <Button sx={{color: "orange"}}>Contact</Button>
         </Toolbar>
       </AppBar>
 
-      {/* Main Content */}
-      <div style={{ padding: "2rem" }}>
+    {/* Main Content */}
+    <div style={{ padding: "2rem" }}>
         <Stack spacing={2}>
           <TextField
             id="input-text"
@@ -90,13 +96,34 @@ function App() {
                   borderColor: orange[500],
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: purple[900],
+                  borderColor: grey[900],
                 },
               },
             }}
           />
         </Stack>
       </div>
+
+    </Box>
+      
+        {/* List Section */}
+        <Box className="list-box">
+          <List>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  <FolderIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Single-line item" secondary="Secondary text" />
+            </ListItem>
+          </List>
+
+          <TextField></TextField>
+          <Button variant="contained" color="primary" sx={{ marginLeft: "8px", backgroundColor: orange[500] }}>
+            <AddIcon></AddIcon>
+          </Button>
+        </Box>
     </>
   );
 }
